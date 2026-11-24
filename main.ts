@@ -31,6 +31,11 @@ function validateEntry(text: string): void {
     if (line.trim().length === 0) {
       throw new Error(`Line ${i + 1} must not be empty.`);
     }
+    if (line !== line.trim()) {
+      throw new Error(
+        `Line ${i + 1} must not have leading or trailing whitespace.`,
+      );
+    }
     if (!line.trim().endsWith(".")) {
       throw new Error(`Line ${i + 1} must be a single sentence.`);
     }
